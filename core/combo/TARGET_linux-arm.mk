@@ -68,15 +68,14 @@ endif
 
 TARGET_NO_UNDEFINED_LDFLAGS := -Wl,--no-undefined
 
-TARGET_arm_CFLAGS :=    -Ofast \
-                        -pipe                \
+TARGET_arm_CFLAGS :=    -O3 \
                         -fomit-frame-pointer \
                         -fstrict-aliasing    \
                         -funswitch-loops
 
 # Modules can choose to compile some source as thumb.
 TARGET_thumb_CFLAGS :=  -mthumb \
-                        -Os \
+                        -O3 \
                         -fomit-frame-pointer \
                         -fstrict-aliasing
 
@@ -151,7 +150,7 @@ TARGET_GLOBAL_CFLAGS += -mthumb-interwork
 TARGET_GLOBAL_CPPFLAGS += -fvisibility-inlines-hidden
 
 # More flags/options can be added here
-TARGET_RELEASE_CFLAGS := \
+TARGET_RELEASE_CFLAGS += \
 			-DNDEBUG \
 			-g \
 			-fstrict-aliasing \
