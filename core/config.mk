@@ -158,16 +158,16 @@ ifneq ($(words $(board_config_mk)),1)
   $(error Multiple board config files for TARGET_DEVICE $(TARGET_DEVICE): $(board_config_mk))
 endif
 include $(board_config_mk)
+-include vendor/extra/BoardConfigExtra.mk
 ifeq ($(TARGET_ARCH),)
   $(error TARGET_ARCH not defined by board config: $(board_config_mk))
 endif
 TARGET_DEVICE_DIR := $(patsubst %/,%,$(dir $(board_config_mk)))
 board_config_mk :=
 
-## Rebuild the pathmap if there's a recovery variant. Its path probably changed
-ifneq ($(RECOVERY_VARIANT),)
-include $(BUILD_SYSTEM)/pathmap.mk
-endif
+# General entries for project pathmap.  Any entries listed here should
+# be device and hardware independent.
+$(call project-set-path-variant,recovery,RECOVERY_VARIANT,bootable/recovery)
 
 # Perhaps we should move this block to build/core/Makefile,
 # once we don't have TARGET_NO_KERNEL reference in AndroidBoard.mk/Android.mk.

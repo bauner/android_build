@@ -486,7 +486,6 @@ GET-INSTALL-PATH:
 		echo 'INSTALL-PATH: $(m) $(ALL_MODULES.$(m).INSTALLED)';))
 
 else # ONE_SHOT_MAKEFILE
-
 ifneq ($(dont_bother),true)
 #
 # Include all of the makefiles in the system
