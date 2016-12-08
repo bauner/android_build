@@ -43,7 +43,7 @@ PRODUCT_PACKAGES += \
     Keyguard \
     Launcher2 \
     ManagedProvisioning \
-#    MtpDocumentsProvider \
+    MtpDocumentsProvider \
     PicoTts \
     PacProcessor \
     libpac \
